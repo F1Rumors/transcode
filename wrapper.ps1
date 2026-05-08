@@ -31,8 +31,8 @@ Add-Type -AssemblyName System.Windows.Forms
 # Explorer's PATH differs from a terminal session so we use known full paths.
 
 $pythonCandidates = @(
-    "C:\Users\f1rum\AppData\Local\Programs\Python\Python312\python.exe",
-    "C:\Users\f1rum\AppData\Local\Programs\Python\Launcher\py.exe",
+    "$env:LOCALAPPDATA\Programs\Python\Python312\python.exe",
+    "$env:LOCALAPPDATA\Programs\Python\Launcher\py.exe",
     "C:\Python312\python.exe",
     "C:\Python3\python.exe"
 )
@@ -44,7 +44,7 @@ if (-not $python) {
     exit 1
 }
 
-$codeRoot = "S:\misc\python\claude"
+$codeRoot = Split-Path $PSScriptRoot -Parent
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 
